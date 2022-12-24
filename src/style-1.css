@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(44, 45, 44);
+  font-family: 'Inter', sans-serif;
+  color: white;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(27, 27, 27);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  color: rgb(92, 189, 200);
+}
+
+.image {
+  width: 60px;
+  margin-left: 0.4em;
+}
+
+.project-name {
+  margin-right: 1em;
+}
+
+.main {
+  margin: 1em;
+  margin-top: 2em;
+}
+
+.bg-logo {
+  position: fixed;
+  width: 600px;
+  left: 40%;
+  opacity: 5%;
+}
+
+.main>ul {
+  list-style-type: none;
+}
+
+.main>ul>li::before {
+  content: "\2022";
+  color: rgb(92, 189, 200);
+  font-weight: bolder;
+  font-size: x-large;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.main>ul>li {
+  line-height: 40px;
+}
+
+.footer {
+  background-color: rgb(27, 27, 27);
+  color: white;
+  padding: 5px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
