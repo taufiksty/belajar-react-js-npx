@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 * {
-  border: 1px solid white;
+  /* border: 1px solid white; */
   padding: 0;
   box-sizing: border-box;
 }
@@ -16,25 +16,26 @@ body {
 }
 
 .card {
-  border-radius: 5%;
+  border-radius: 20px;
   background-color: rgb(27, 27, 27);
-  width: 430px;
+  width: 375px;
 }
 
 .info {
   text-align: center;
   width: inherit;
+  margin-bottom: 35px;
 }
 
 .info--img {
   width: inherit;
-  height: 380px;
-  border-top-left-radius: 5%;
-  border-top-right-radius: 5%;
+  height: 360px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .info--name {
-  font-size: xx-large;
+  font-size: x-large;
   margin-top: 40px;
 }
 
@@ -42,4 +43,55 @@ body {
   margin-top: -20px;
   color: rgb(248, 210, 167);
 }
+
+button {
+  margin-right: 8px;
+  margin-left: 8px;
+  padding: 10px 35px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.button--linkedin {
+  background-color: rgb(81, 149, 252);
+  color: white;
+}
+
+.button--logo {
+  padding-right: 5px;
+}
+
+.about, .interests {
+  margin: 0 40px;
+}
+
+.content--title {
+  font-size: large;
+}
+
+.content--body {
+  font-size: smaller;
+  color: rgb(182, 184, 182);
+}
+
+.footer {
+  background-color: black;
+  margin-top: 30px;
+  padding: 15px 0;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.footer--logo {
+  color: rgb(55, 56, 55);
+  display: flex;
+  justify-content: center;
+  margin: 3px;
+}
+
+.footer--icon {
+  margin: 0 10px;
+}
+
+
 
