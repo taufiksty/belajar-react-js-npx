@@ -11,10 +11,16 @@ body {
 }
 
 .navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   box-shadow: 0 3px 7px rgba(62, 61, 61, 0.1);
-  padding: 15px 20px;
+  padding: 15px 40px;
+  background-color: white;
 }
 
 .navbar--logo {
@@ -23,7 +29,7 @@ body {
 
 .hero {
   text-align: center;
-  padding: 30px 40px;
+  padding: 40px;
 }
 
 .hero--image {
@@ -42,11 +48,60 @@ body {
 
 .hero--title-detail {
   margin-top: -10px;
-  padding-right: 40%;
+  /* padding-right: 10%; */
   font-weight: 300;
   font-size: 8px;
 }
 
+.card {
+  display: flex;
+  flex-direction: row;
+  padding: 40px;
+  overflow-x: scroll;
+}
+
+.card--item {
+  max-width: 250px;
+  position: relative;
+}
+
+.card--photo {
+  width: 100%;
+}
+
+.card--status {
+  position: absolute;
+  top: 10px;
+  margin-left: 10px;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-size: 8px;
+  background-color: white;
+}
+
+.card--star {
+  font-size: 8px;
+  display: flex;
+  margin: -10px 0;
+}
+
+.card--star > img {
+  width: 20px;
+  padding-right: 4px;
+}
+
+.star--number {
+  color: grey;
+}
+
+.card--detail {
+  font-weight: 300;
+  font-size: 8px;
+}
+
+.bold {
+  font-weight: bold;
+}
 
 @media only screen and (min-width: 768px) {
    /* Tablets */
@@ -54,12 +109,16 @@ body {
 
 @media only screen and (min-width: 992px) {
   /* Desktop */
+  .navbar {
+    padding: 15px 10%;
+  }
+
   .navbar--logo {
     width: 120px;
   }
 
   .hero {
-    padding: 0 80px;
+    padding: 60px 10%;
   }
 
   .hero--image {
@@ -71,6 +130,22 @@ body {
   }
 
   .hero--title-detail {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  .card {
+    padding: 60px 10%;
+  }
+
+  .card--item {
+    max-width: 350px;
+  }
+
+  .card--status, .card--star, .card--detail {
+    font-size: 18px;
+  }
+
+  .card--star, .card--detail {
+    line-height: 20px;
   }
 }
