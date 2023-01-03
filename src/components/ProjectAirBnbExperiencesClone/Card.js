@@ -1,24 +1,37 @@
 import React from "react";
-import CardPhoto from "../../images/card-photo.png";
 import Star from "../../images/star.svg";
 
 export default function Card(props) {
-  return (
-    <section className="card">
-      <div className="card--container">
-        <div className="card--item">
-          <img src={CardPhoto} alt="katie-zaferes" className="card--photo"></img>
-          <div className="card--status">
-            SOLD OUT
-          </div>
-          <div className="card--star">
-            <img src={Star} alt=""></img>
-            <p>5.0 <span className="star--number">(6) | USA</span></p>
-          </div>
-          <p className="card--detail">Life lessons with Katie Zaferes</p>
-          <p className="card--detail"><span className="bold">From $136</span> / person</p>
-        </div>
-      </div>
-    </section>
-  );
+	console.log(props.openSpot);
+	let badgeText;
+	if (props.openSpot === 0) {
+		badgeText = "SOLD OUT";
+	} else if (props.location === "ONLINE") {
+		badgeText = "ONLINE";
+	}
+
+	return (
+		<div className="card--item">
+			<img
+				src={require(`../../images/${props.img}`)}
+				alt={props.img.replace(".png", "")}
+				className="card--photo"></img>
+			{badgeText && <div className="card--status">{badgeText}</div>}
+			<div className="card--star">
+				<img
+					src={Star}
+					alt=""></img>
+				<p>
+					{props.rating.toFixed(1)}{" "}
+					<span className="star--number">
+						({props.reviewCount}) | {props.country}
+					</span>
+				</p>
+			</div>
+			<p className="card--detail">{props.title}</p>
+			<p className="card--detail">
+				<span className="bold">From ${props.price}</span> / person
+			</p>
+		</div>
+	);
 }

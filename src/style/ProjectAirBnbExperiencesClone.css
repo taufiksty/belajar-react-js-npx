@@ -8,6 +8,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -50,23 +51,31 @@ body {
   margin-top: -10px;
   /* padding-right: 10%; */
   font-weight: 300;
-  font-size: 8px;
+  font-size: 16px;
 }
 
 .card {
+  padding: 40px;
+}
+
+.card--container {
   display: flex;
   flex-direction: row;
-  padding: 40px;
   overflow-x: scroll;
+  padding-bottom: 20px;
 }
 
 .card--item {
-  max-width: 250px;
+  width: 250px;
+  flex-shrink: 0;
+  margin-right: 20px;
   position: relative;
+  white-space: nowrap;
 }
 
 .card--photo {
   width: 100%;
+  height: 300px;
 }
 
 .card--status {
@@ -75,12 +84,12 @@ body {
   margin-left: 10px;
   padding: 3px 8px;
   border-radius: 5px;
-  font-size: 8px;
+  font-size: 16px;
   background-color: white;
 }
 
 .card--star {
-  font-size: 8px;
+  font-size: 16px;
   display: flex;
   margin: -10px 0;
 }
@@ -96,7 +105,11 @@ body {
 
 .card--detail {
   font-weight: 300;
-  font-size: 8px;
+  font-size: 16px;
+}
+
+.card--detail, .card--star {
+  line-height: 1;
 }
 
 .bold {
@@ -134,15 +147,20 @@ body {
   }
 
   .card {
-    padding: 60px 10%;
+    padding: 50px 10%;
+  }
+
+  .card--container {
+    overflow-x: auto;
   }
 
   .card--item {
     max-width: 350px;
+    margin-right: 40px;
   }
 
   .card--status, .card--star, .card--detail {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .card--star, .card--detail {
