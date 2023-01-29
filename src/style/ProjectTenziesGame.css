@@ -69,6 +69,25 @@ main {
   cursor: pointer;
 }
 
+h1 {
+  font-weight: 700;
+  font-family: 'Karla';
+  font-size: 70px;
+  letter-spacing: -.03em;
+}
+
+h4 {
+  font-weight: 400;
+  font-family: 'Inter';
+  margin: 40px 10px;
+  margin-top: -30px;
+  font-size: 20px;
+}
+
+.is-held {
+  background-color: #59E391;
+}
+
 @media only screen and (min-width: 768px) {
   /* Tablets */
   .die--container {
@@ -86,5 +105,10 @@ main {
 
   .button--roll {
     width: 15%;
+  }
+
+  h4 {
+    margin: 40px 170px;
+    font-size: 25px;
   }
 }
