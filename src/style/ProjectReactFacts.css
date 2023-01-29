@@ -2,14 +2,13 @@
 
 * {
   box-sizing: border-box;
+  transition: ease-in-out .1s;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: rgb(44, 45, 44);
   font-family: 'Inter', sans-serif;
-  color: white;
 }
 
 .nav {
@@ -17,8 +16,6 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: rgb(27, 27, 27);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -31,13 +28,36 @@ body {
   margin-left: 0.4em;
 }
 
-.project-name {
+.toggle-mode {
   margin-right: 1em;
+  display: flex;
+  align-items: center;
 }
 
+.box-mode {
+  width: 35px;
+  height: 18px;
+  margin: 0 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.round-mode {
+  width: 16px;
+  margin: 0 2px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+/* .project-name {
+  margin-right: 1em;
+} */
+
 .main {
-  margin: 1em;
-  margin-top: 2em;
+  padding: 1em;
+  padding: 2em;
+  height: 100vh;
 }
 
 .bg-logo {
@@ -65,13 +85,12 @@ body {
   line-height: 40px;
 }
 
+/* 
 .footer {
-  background-color: rgb(27, 27, 27);
-  color: white;
   padding: 5px;
   padding-top: 8px;
   padding-bottom: 8px;
   position: fixed;
   bottom: 0;
   width: 100%;
-}
+} */

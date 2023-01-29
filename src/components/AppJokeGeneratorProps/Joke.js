@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function Joke(props) {
-  console.log(props);
-  return (
-    <div className="joke">
-      {props.setup && <h2>Setup: {props.setup}</h2>}
-      <p>Punchline: {props.punchline}</p>
-      <hr></hr>
-      <br></br>
-    </div>
-  );
+	const [isShown, setIsShown] = useState(false);
+
+	const handleShow = () => {
+		setIsShown((prevState) => !prevState);
+	};
+
+	return (
+		<div className="joke">
+			{props.setup && <h2>{props.setup}</h2>}
+			{isShown && <p>{props.punchline}</p>}
+			<button onClick={handleShow}>
+				{isShown ? "Hide" : "Show"} punchline
+			</button>
+			<hr></hr>
+		</div>
+	);
 }
