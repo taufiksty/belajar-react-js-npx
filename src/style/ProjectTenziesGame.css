@@ -52,6 +52,15 @@ main {
   font-weight: 700;
   font-size: 20px;
   cursor: pointer;
+  line-height: .9;
+}
+
+.dot {
+  margin: 0 20px;
+}
+
+.dot-four {
+  margin: 0 25px;
 }
 
 .button--roll {
