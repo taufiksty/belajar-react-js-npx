@@ -23,10 +23,34 @@ export default function App() {
 	const [tenzies, setTenzies] = useState(false);
 	const [roll, setRoll] = useState(0);
 
+	const [time, setTime] = useState(0);
+	const [isRunning, setIsRunning] = useState(true);
+
+	useEffect(() => {
+		let interval = null;
+		if (isRunning) {
+			interval = setInterval(() => {
+				setTime((time) => time + 1);
+			}, 1000);
+		}
+
+		return () => clearInterval(interval);
+	}, [isRunning]);
+
+	const formatTime = (time) => {
+		const minutes = Math.floor(time / 60);
+		const seconds = time % 60;
+		return `${minutes.toString().padStart(2, "0")}:${seconds
+			.toString()
+			.padStart(2, "0")}`;
+	};
+
 	const newGame = () => {
 		setRoll(0);
 		setDice(allNewDice());
 		setTenzies(false);
+		setTime(0);
+		setIsRunning(true);
 	};
 
 	const rollDice = () => {
@@ -50,6 +74,7 @@ export default function App() {
 
 		if (allHeld && allValue) {
 			setTenzies(true);
+			setIsRunning(false);
 		}
 	}, [dice]);
 
@@ -79,6 +104,12 @@ export default function App() {
 					Roll until all dice are the same. Click each die to freeze it at its
 					current value between rolls.
 				</h4>
+				<div>
+					{isRunning
+						? "Go! your time is running"
+						: "Congratulations! you finished game at"}{" "}
+					{formatTime(time)}
+				</div>
 				<div className="die--box-center">
 					<div className="die--container">{diceElements}</div>
 				</div>
