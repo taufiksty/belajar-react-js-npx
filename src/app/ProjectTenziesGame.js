@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import "../style/ProjectTenziesGame.css";
 import Die from "../components/ProjectTenziesGame/Die";
+// import Sidebar from "../components/ProjectTenziesGame/Sidebar";
 import { nanoid } from "nanoid";
 
 export default function App() {
@@ -23,8 +24,29 @@ export default function App() {
 	const [tenzies, setTenzies] = useState(false);
 	const [roll, setRoll] = useState(0);
 
+	const getBestTimeLocalStorage = () => {
+		const check = localStorage.getItem("bestTime");
+		if (check) {
+			return check;
+		} else {
+			return null;
+		}
+	};
+
 	const [time, setTime] = useState(0);
 	const [isRunning, setIsRunning] = useState(true);
+
+	const formatTime = (time) => {
+		const minutes = Math.floor(time / 60);
+		const seconds = time % 60;
+		return `${minutes.toString().padStart(2, "0")}:${seconds
+			.toString()
+			.padStart(2, "0")}`;
+	};
+
+	const bestTime = getBestTimeLocalStorage()
+		? formatTime(Number(getBestTimeLocalStorage()))
+		: 0;
 
 	useEffect(() => {
 		let interval = null;
@@ -36,14 +58,6 @@ export default function App() {
 
 		return () => clearInterval(interval);
 	}, [isRunning]);
-
-	const formatTime = (time) => {
-		const minutes = Math.floor(time / 60);
-		const seconds = time % 60;
-		return `${minutes.toString().padStart(2, "0")}:${seconds
-			.toString()
-			.padStart(2, "0")}`;
-	};
 
 	const newGame = () => {
 		setRoll(0);
@@ -75,7 +89,11 @@ export default function App() {
 		if (allHeld && allValue) {
 			setTenzies(true);
 			setIsRunning(false);
+			if (bestTime === 0 || Number(getBestTimeLocalStorage()) > time) {
+				localStorage.setItem("bestTime", time);
+			}
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [dice]);
 
 	const diceElements = dice?.map((die) => (
@@ -87,8 +105,17 @@ export default function App() {
 		/>
 	));
 
+	// const [isOpen, setIsOpen] = useState(false);
+
+	// const handleIsOpen = () => {
+	// 	setIsOpen(!isOpen);
+	// };
+
 	return (
 		<div>
+			{/* <Sidebar
+				isOpen={isOpen}
+			/> */}
 			<main>
 				{tenzies && (
 					<div>
@@ -99,16 +126,20 @@ export default function App() {
 						<h2>You won!</h2>
 					</div>
 				)}
+				{/* <button className={`button--bfr-open ${isOpen && 'behind'}`} onClick={handleIsOpen}>Best Scores</button> */}
 				<h1>Tenzies</h1>
 				<h4>
 					Roll until all dice are the same. Click each die to freeze it at its
 					current value between rolls.
 				</h4>
 				<div>
-					{isRunning
-						? "Go! your time is running"
-						: "Congratulations! you finished game at"}{" "}
-					{formatTime(time)}
+					{bestTime !== 0 ? <p>Best time : {bestTime}</p> : ""}
+					<p>
+						{isRunning
+							? "Go! your time is running"
+							: "Congratulations! you finished game at"}{" "}
+						{formatTime(time)}
+					</p>
 				</div>
 				<div className="die--box-center">
 					<div className="die--container">{diceElements}</div>
