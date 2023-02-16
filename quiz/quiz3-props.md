@@ -22,7 +22,7 @@ function Navbar(props) {
   );
 }
 ```
-  Ans: By adding arguments on Navbar function like `props` and then using an object call like {props.property}
+  Ans: By adding arguments on Navbar function like `props` and then using an object call like {props.property}.
 
 5. What data type is `props` when the component receives it?
   Ans: An object.

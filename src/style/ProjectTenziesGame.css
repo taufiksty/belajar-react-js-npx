@@ -28,6 +28,7 @@ main {
 .die--box-center {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
 .die--container {
@@ -61,6 +62,12 @@ main {
 
 .dot-four {
   margin: 0 25px;
+}
+
+.total--roll-dice {
+  margin-top: 40px;
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
 }
 
 .button--roll {
