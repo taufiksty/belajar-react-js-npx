@@ -75,7 +75,7 @@ a {
 }
 
 .quizs {
-  margin: 0 5px;
+  margin: 0 10px;
 }
 
 .question {
@@ -95,6 +95,7 @@ a {
   font-size: 11px;
   padding: 5px 8px;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .btn-check {
@@ -114,6 +115,34 @@ a {
 .hold-ans {
   border: none;
   background-color: #a7b3f7;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: 'Karla', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  color: #293264;
+  height: 100vh;
+}
+
+.hidden {
+  display: none;
+}
+
+button:hover {
+  opacity: .9;
+}
+
+button {
+  cursor: pointer;
+}
+
+.total-true {
+  text-align: center;
 }
 
 @media only screen and (min-width: 768px) {
@@ -138,5 +167,33 @@ a {
 
   .btn-start {
     padding: 20px 85px;
+  }
+
+  .quizs-component {
+    padding: 20px 400px;
+  }
+
+  .loading {
+    font-size: 24px;
+  }
+
+  .question {
+    font-size: 20px;
+    line-height: 1.5em;
+  }
+
+  .answer {
+    font-size: 15px;
+    margin-right: 15px;
+  }
+
+  hr {
+    margin-top: 30px;
+  }
+
+  .btn-check {
+    margin-top: 35px;
+    padding: 20px 85px;
+    font-size: 15px;
   }
 }

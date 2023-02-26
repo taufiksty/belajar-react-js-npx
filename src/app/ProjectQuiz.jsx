@@ -5,15 +5,15 @@ import Welcome from "../components/ProjectQuiz/Welcome";
 import Quiz from "../components/ProjectQuiz/Quiz";
 
 export default function App() {
-	const [data, setData] = useState([]);
+	const [data, setData] = useState({ isLoading: true, results: [] });
 
 	useEffect(() => {
 		const getQuiz = async () => {
 			const res = await fetch(
-				"https://opentdb.com/api.php?amount=10&category=9"
+				"https://opentdb.com/api.php?amount=10&category=9&difficulty=easy"
 			);
 			const data = await res.json();
-			setData(data.results);
+			setData({ isLoading: false, results: data.results });
 		};
 
 		getQuiz();
