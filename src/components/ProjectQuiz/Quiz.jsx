@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import DialogBox from "./dialogBox";
 import he from "he";
 import { nanoid } from "nanoid";
 
@@ -70,6 +70,7 @@ export default function Quiz(props) {
 
 	return (
 		<div className="quizs-component">
+			{check.isCheck && <DialogBox totalTrue={check.totalTrue} open={true} />}
 			<div className={`loading ${props.data.isLoading ? "" : "hidden"}`}>
 				Loading...
 			</div>
@@ -93,27 +94,14 @@ export default function Quiz(props) {
 						<hr />
 					</div>
 				))}
-				{check.isCheck && (
-					<p className="total-true">
-						{check.totalTrue <= 5
-							? `Unfortunately, you got ${check.totalTrue}/10`
-							: check.totalTrue < 8
-							? `Good, you got ${check.totalTrue}/10`
-							: check.totalTrue < 10
-							? `Great, you got ${check.totalTrue}/10`
-							: `Perfect, you got 10/10`}
-					</p>
-				)}
+				{/* {check.isCheck && <p>{check.totalTrue}</p>} */}
 				{check.isCheck ? (
-					<Link to="/">
-						<button
-							className="btn-check">
-							Back
-						</button>
-					</Link>
+					<a href="/">
+						<button className="btn--check">Back</button>
+					</a>
 				) : (
 					<button
-						className="btn-check"
+						className="btn--check"
 						onClick={handleCheck}>
 						Check Answer
 					</button>
@@ -122,3 +110,15 @@ export default function Quiz(props) {
 		</div>
 	);
 }
+
+// (
+// 					<p className="total-true">
+// 						{check.totalTrue <= 5
+// 							? `Unfortunately, you got ${check.totalTrue}/10`
+// 							: check.totalTrue < 8
+// 							? `Good, you got ${check.totalTrue}/10`
+// 							: check.totalTrue < 10
+// 							? `Great, you got ${check.totalTrue}/10`
+// 							: `Perfect, you got 10/10`}
+// 					</p>
+// 				)

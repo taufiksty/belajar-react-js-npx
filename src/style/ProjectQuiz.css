@@ -41,6 +41,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .title {
@@ -56,6 +57,7 @@ body {
   font-size: 16px;
   color: #293264;
   margin-top: 0;
+  padding: 0 10px;
 }
 
 .btn-start {
@@ -75,7 +77,7 @@ a {
 }
 
 .quizs {
-  margin: 0 10px;
+  margin: 10px;
 }
 
 .question {
@@ -98,7 +100,7 @@ a {
   cursor: pointer;
 }
 
-.btn-check {
+.btn--check {
   margin: 20px auto;
   background-color: #4D5B9E;
   border: none;
@@ -145,6 +147,10 @@ button {
   text-align: center;
 }
 
+.modal-title {
+  text-align: center;
+}
+
 @media only screen and (min-width: 768px) {
   .blob-top {
     top: -500px;
@@ -155,6 +161,11 @@ button {
   .blob-bottom {
     top: -200px;
     width: 50%;
+  }
+
+  .welcome {
+    padding: 0 500px;
+    text-align: center;
   }
 
   .title {
@@ -191,7 +202,7 @@ button {
     margin-top: 30px;
   }
 
-  .btn-check {
+  .btn--check {
     margin-top: 35px;
     padding: 20px 85px;
     font-size: 15px;
