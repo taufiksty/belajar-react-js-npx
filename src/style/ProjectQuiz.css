@@ -151,6 +151,15 @@ button {
   text-align: center;
 }
 
+.false-ans {
+  border-radius: 10px;
+  background-color: rgba(255, 0, 0, .2);
+}
+
+.correct-ans {
+  background-color: #d4fde8;
+}
+
 @media only screen and (min-width: 768px) {
   .blob-top {
     top: -500px;
@@ -159,7 +168,7 @@ button {
   }
 
   .blob-bottom {
-    top: -200px;
+    top: -400px;
     width: 50%;
   }
 

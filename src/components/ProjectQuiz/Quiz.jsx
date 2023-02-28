@@ -59,18 +59,27 @@ export default function Quiz(props) {
 		});
 
 		let countTrue = 0;
+		let arrTrue = [];
 		for (let i = 0; i < answers.length; i++) {
 			if (answers[i] === dataQA[i].correct_answer) {
 				countTrue += 1;
+				arrTrue.push(true);
+			} else {
+				arrTrue.push(false);
 			}
 		}
 
-		setCheck({ isCheck: true, totalTrue: countTrue });
+		setCheck({ isCheck: true, arrTrue: arrTrue, totalTrue: countTrue });
 	};
 
 	return (
 		<div className="quizs-component">
-			{check.isCheck && <DialogBox totalTrue={check.totalTrue} open={true} />}
+			{check.isCheck && (
+				<DialogBox
+					totalTrue={check.totalTrue}
+					open={true}
+				/>
+			)}
 			<div className={`loading ${props.data.isLoading ? "" : "hidden"}`}>
 				Loading...
 			</div>
@@ -78,16 +87,26 @@ export default function Quiz(props) {
 				{dataQA.map((quiz, i) => (
 					<div
 						key={i}
-						className="quiz">
+						className={`quiz ${
+							check.isCheck ? (!check.arrTrue[i] ? "false-ans" : "") : ""
+						}`}>
 						<p
 							dangerouslySetInnerHTML={{ __html: he.decode(quiz.question) }}
 							className="question"
 						/>
-						{quiz.answers.map((a, i) => (
+						{quiz.answers.map((a, j) => (
 							<button
-								key={i}
-								className={`answer ${a.isHeld ? "hold-ans" : ""}`}
-								onClick={() => holdAnswer(quiz.id, a.id)}
+								key={j}
+								className={`answer ${a.isHeld ? "hold-ans" : ""} ${
+									check.isCheck
+										? !check.arrTrue[i]
+											? a.answer === dataQA[i].correct_answer
+												? "correct-ans"
+												: ""
+											: ""
+										: ""
+								}`}
+								onClick={check.isCheck ? "" : () => holdAnswer(quiz.id, a.id)}
 								dangerouslySetInnerHTML={{ __html: he.decode(a.answer) }}
 							/>
 						))}
